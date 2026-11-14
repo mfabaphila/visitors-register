@@ -37,7 +37,7 @@ const addVisitor = ()=>{
 }
   return(
     <>
-    <h1>Vistors sign in App, don't forget to leave. You don't stay here. We have enough people as it is. Go home please</h1>
+    <h1 style={{color:"blue"}}>Vistors sign in App, don't forget to leave. You don't stay here. We have enough people as it is. Go home please</h1>
     <fieldset>
 
    <legend>Welcome to our Casa</legend>
