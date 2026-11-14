@@ -121,6 +121,34 @@ const addVisitor = ()=>{
   required
 />
 <button>Add Visitor</button>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+        <th>Date</th>
+          <th>Unit</th>
+            <th>Time In</th>
+              <th>Time Out</th>
+                <th># Plate</th>
+    </tr>
+  </thead>
+  <tbody>
+    {visitors.map((item,index)=>(
+      <tr key={index}>
+<td>{item.visitor}</td>
+<td>{item.date}</td>
+<td>{item.unit}</td>
+<td>{item.timeIn}</td>
+<td>{item.timeOut}</td>
+<td>{item.plate}</td>
+      </tr>
+    )
+    
+  )
+    }
+  </tbody>
+</table>
     </form>
      </fieldset>
     </>

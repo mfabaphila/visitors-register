@@ -1,0 +1,13 @@
+table,td,th.tr{
+    border-collapse: collapse;
+    border: 1px solid salmon;
+    margin: 15px;
+}
+
+th{
+    border-collapse: collapse;
+    border: 2px solid brown;
+background-color: #6B7F72;
+
+    color:salmon;
+}
