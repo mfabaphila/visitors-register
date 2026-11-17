@@ -1,13 +1,86 @@
-table,td,th.tr{
-    border-collapse: collapse;
-    border: 1px solid salmon;
-    margin: 15px;
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin: 15px 0;
 }
 
-th{
-    border-collapse: collapse;
-    border: 2px solid brown;
-background-color: #6B7F72;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0px 0px 0px;
 
-    color:salmon;
+}
+
+td, tr {
+  border: 1px solid rgb(250, 114, 209);
+  padding: 8px;
+}
+
+th {
+  border: 2px solid brown;
+  background-color: #6B7F72;
+  color: salmon;
+}
+
+.box{
+  background-color: #6B7F72;
+
+
+}
+
+.header {
+display: flex;
+  gap: 15px;
+  padding: 20px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.header label {
+  display: block;
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.header input,
+.header select {
+  width: 100%;
+  padding: 10px;
+  background: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.header input:focus,
+.header select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px #dbeafe;
+}
+
+.header input::placeholder {
+  color: #94a3b8;
+}
+
+button {
+ height: 35px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 15px auto;
+}
+
+button:hover {
+  background:salmon;
 }

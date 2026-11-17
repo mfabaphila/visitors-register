@@ -9,6 +9,7 @@ const [plate, setPlate] = useState("");
 const [date, setDate] = useState("");
 const [visitor, setVisitor]=useState("")
 const [customUnit, setCustomUnit] = useState("");
+const [updatedList, setUpdatedList] = useState("")
 const[visitors, setVisitors]= useState(
   JSON.parse(localStorage.getItem("visitor"))||[]
 )
@@ -23,7 +24,9 @@ const addVisitor = ()=>{
     timeOut:timeOut,
     plate:plate,
     date:date,
-    unit:unit
+    unit:unit,
+    reason:reason,
+    expereince:expereince
   }
   const updateVisitor = [...visitors, newVisitor]
   setVisitors(updateVisitor)
@@ -34,16 +37,23 @@ const addVisitor = ()=>{
     setTimeOut("");
     setPlate("");
     setDate("");
+ 
+}
+const deleteVisitor = (index)=>{
+const updatedList =visitors.filter((item,i)=> i !==index)
+setVisitors(updatedList)
+localStorage.setItem("visitor", JSON.stringify(updatedList))
 }
   return(
     <>
-    <h1 style={{color:"blue"}}>Vistors sign in App, don't forget to leave. You don't stay here. We have enough people as it is. Go home please</h1>
+    <h1 style={{color:"blue"}}>Vistors sign in App</h1>
     <fieldset>
 
    <legend>Welcome to our Casa</legend>
-    <form className="box" onSubmit={addVisitor}>
+    <form onSubmit={addVisitor}>
 
-      <label htmlFor="Vistor'Name">Name</label>
+<div className="header"> 
+      <label htmlFor="Name of the Visitor">Visitor</label>
       <input
       type="text"
       value={visitor}
@@ -103,14 +113,7 @@ const addVisitor = ()=>{
       onChange={(e)=>setTimeIn(e.target.value)}
       required/>
 
-<label htmlFor="timeOut">Time Out</label>
-<input
-  type="time"
-  id="timeOut"
-  value={timeOut}
-  onChange={(e) => setTimeOut(e.target.value)}
-  
-/>
+
 <label htmlFor="plate">Plate</label>
 <input
   type="text"
@@ -120,17 +123,30 @@ const addVisitor = ()=>{
   placeholder="Enter plate number"
   required
 />
-<button>Add Visitor</button>
 
+<label htmlFor="timeOut">Time Out</label>
+<input
+  type="time"
+  id="timeOut"
+  value={timeOut}
+  onChange={(e) => setTimeOut(e.target.value)}
+  
+/>
+</div>
+
+<button>Add Visitor</button>
+<div className="responsive"> 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Name of the Visitor</th>
         <th>Date</th>
           <th>Unit</th>
             <th>Time In</th>
+            <th>Number Plate</th>
               <th>Time Out</th>
-                <th># Plate</th>
+               <th>Action</th>
+                
     </tr>
   </thead>
   <tbody>
@@ -140,8 +156,12 @@ const addVisitor = ()=>{
 <td>{item.date}</td>
 <td>{item.unit}</td>
 <td>{item.timeIn}</td>
-<td>{item.timeOut}</td>
 <td>{item.plate}</td>
+<td>{item.timeOut}</td>
+<td>
+  <button onClick={()=> deleteVisitor(index)}>Delete</button>
+
+</td>
       </tr>
     )
     
@@ -149,6 +169,7 @@ const addVisitor = ()=>{
     }
   </tbody>
 </table>
+</div>
     </form>
      </fieldset>
     </>
