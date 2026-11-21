@@ -3,6 +3,12 @@
   overflow-x: auto;
   margin: 15px 0;
 }
+.responsive{
+    background: #f1f5f9;
+  border: 2px solid #0466e6;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 20px;
+}
 
 table {
   width: 100%;
@@ -18,24 +24,20 @@ td, tr {
 
 th {
   border: 2px solid brown;
-  background-color: #6B7F72;
+  background-color: #e2f5eb;
   color: salmon;
 }
 
-.box{
-  background-color: #6B7F72;
-
-
-}
 
 .header {
 display: flex;
   gap: 15px;
   padding: 20px;
   background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border: 2px solid #0466e6;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   margin-bottom: 10px;
+  border-radius: 20px;
 }
 
 .header label {
@@ -84,3 +86,4 @@ button {
 button:hover {
   background:salmon;
 }
+

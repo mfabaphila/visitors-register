@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./index.css"
+
 
 export default function App(){
   const[unit, setUnit]= useState("")
@@ -8,6 +9,7 @@ const [timeOut, setTimeOut] = useState("");
 const [plate, setPlate] = useState(""); 
 const [date, setDate] = useState("");
 const [visitor, setVisitor]=useState("")
+const[joke, setJoke]=useState("")
 const [customUnit, setCustomUnit] = useState("");
 const [updatedList, setUpdatedList] = useState("")
 const[visitors, setVisitors]= useState(
@@ -25,8 +27,7 @@ const addVisitor = ()=>{
     plate:plate,
     date:date,
     unit:unit,
-    reason:reason,
-    expereince:expereince
+ 
   }
   const updateVisitor = [...visitors, newVisitor]
   setVisitors(updateVisitor)
@@ -44,12 +45,21 @@ const updatedList =visitors.filter((item,i)=> i !==index)
 setVisitors(updatedList)
 localStorage.setItem("visitor", JSON.stringify(updatedList))
 }
+
+useEffect(()=>{
+  fetch("https://official-joke-api.appspot.com/random_joke")
+  .then((results)=>results.json())
+  .then((data)=>{
+    setJoke(data.punchline)
+  })
+},
+  [])
   return(
     <>
     <h1 style={{color:"blue"}}>Vistors sign in App</h1>
-    <fieldset>
+  <p style={{color:"salmon", fontSize:"larger"}}>{joke}</p>
 
-   <legend>Welcome to our Casa</legend>
+  
     <form onSubmit={addVisitor}>
 
 <div className="header"> 
@@ -171,7 +181,6 @@ localStorage.setItem("visitor", JSON.stringify(updatedList))
 </table>
 </div>
     </form>
-     </fieldset>
     </>
   )
 }
